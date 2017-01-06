@@ -90,13 +90,24 @@ multiply(4, 3,
 
 
   //Code Here for contains
-
-contains(names, 'Colt', function(result){
-  if(result === true){
-    console.log('Colt is in the array');
-  } else {
-    console.log('Colt is not in the array');
+function contains(arrNames,specName,cb) {
+  var result = false;
+  for (var i = 0; i < arrNames.length; i++) {
+    if(arrNames[i] === specName) {
+      result = true;
+    }
   }
+  cb(result);
+  return result;
+}
+
+contains(names, 'Colt',
+  function(result){
+    if(result === true){
+      console.log('Colt is in the array');
+    } else {
+      console.log('Colt is not in the array');
+    }
 });
 
 
@@ -109,10 +120,22 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
+    function uniq(namesArr,cb) {
+        for( var x = 0; x < namesArr.length; x++) {
+          for (var y = x+1; y < namesArr.length; y++) {
+            if (namesArr[x] === namesArr[y]) {
+              namesArr.splice(y,1);
+            }
+          }
+        }
+      cb(namesArr);
+      return namesArr;
+    }
 
-uniq(names, function(uniqArr){
-  console.log('The new names array with all the duplicate items removed is ', uniqArr);
-});
+    uniq(names,
+        function(uniqArr){
+          console.log('The new names array with all the duplicate items removed is ', uniqArr);
+    });
 
 
 
