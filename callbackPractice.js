@@ -46,8 +46,10 @@ first(names,
 
 
   //Code Here for last
-function last() {
-  
+function last(lastName, cb) {
+  var final = lastName[lastName.length - 1];
+  cb(final);
+  return final;
 }
 
 last(names, function(lastName){
@@ -66,6 +68,7 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
+
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
