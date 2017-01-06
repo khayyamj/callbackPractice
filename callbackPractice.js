@@ -68,10 +68,15 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
+function multiply(num1, num2, cb) {
+  var answer = num1 * num2;
+  cb(answer);
+  return answer;
+}
 
-
-multiply(4, 3, function(answer){
-  console.log('The answer is ' + answer); //should console.log 12
+multiply(4, 3,
+  function(answer){
+    console.log('The answer is ' + answer); //should console.log 12
 })
 
 
