@@ -147,6 +147,18 @@ contains(names, 'Colt',
 
 
     //Code Here for each
+    function each(nameArr,cb) {
+      for (var x = 0; x < nameArr.length; x++) {
+        cb(nameArr[x], x)
+      }
+
+
+      return ('');
+    }
+
+    each(names, function(item, indice){
+      console.log('The item in the ' + indice + ' position is ' + item)
+    });
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -162,29 +174,40 @@ each(names, function(item, indice){
 
 
 
- //code here for getUserById
+//code here for getUserById
+function getUserById(userObj,str,cb) {
+ for (var prop in users) {
+   if (userObj[prop].id === str) {
+     cb(userObj[prop]);
+
+   console.log(userObj[prop].id);
+   }
+ }
+ return ('');
+}
+
 
 var users = [
-  {
-    id: '12d',
-    email: 'tyler@gmail.com',
-    name: 'Tyler',
-    address: '167 East 500 North'
-  },
-  {
-    id: '15a',
-    email: 'cahlan@gmail.com',
-    name: 'Cahlan',
-    address: '135 East 320 North'
-  },
-  {
-    id: '16t',
-    email: 'ryan@gmail.com',
-    name: 'Ryan',
-    address: '192 East 32 North'
-  },
+ {
+   id: '12d',
+   email: 'tyler@gmail.com',
+   name: 'Tyler',
+   address: '167 East 500 North'
+ },
+ {
+   id: '15a',
+   email: 'cahlan@gmail.com',
+   name: 'Cahlan',
+   address: '135 East 320 North'
+ },
+ {
+   id: '16t',
+   email: 'ryan@gmail.com',
+   name: 'Ryan',
+   address: '192 East 32 North'
+ },
 ];
 
 getUserById(users, '16t', function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address);
+ console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address);
 });
